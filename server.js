@@ -6,7 +6,7 @@ var express = require('express'),
 
 var app = express();
 
-var uri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/shortener';
+var uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/shortener';
 mongoose.connect(uri);
 
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
