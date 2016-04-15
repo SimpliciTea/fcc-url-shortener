@@ -43,10 +43,14 @@ function urlHandler () {
 					Urls.findOne({})
 						.sort('-short')
 						.exec(function(err, doc) {
+							if (doc)
+								var key = doc.short + 1;
+							else
+								var key = 44;
 
 							var newDoc = new Urls({
 								'long': longUrl,
-								'short': doc.short + 1
+								'short': key
 							})
 
 							console.dir(JSON.stringify(newDoc));
